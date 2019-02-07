@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PostCSSAssetsPlugin = require('postcss-assets-webpack-plugin');
 
 const extendRule = require('postcss-extend-rule');
-const extendClass = require('postcss-extend-class');
+const extendClass = require('postcss-modules-extend-class');
 const extendFrom = require('postcss-modules-extend-from');
 
 const config = {
