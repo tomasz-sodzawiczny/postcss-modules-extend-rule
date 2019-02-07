@@ -1,6 +1,8 @@
+⚠ Work in progress! ⚠
+
 # PostCSS Modules Extend Rule
 
-[PostCSS] plugin for using extend at-rule with CSS Modules.
+[PostCSS](https://postcss.org/) plugin for using extend at-rule with CSS Modules.
 
 ```css
 .foo {

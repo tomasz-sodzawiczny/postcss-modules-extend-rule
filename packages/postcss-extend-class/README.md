@@ -1,3 +1,5 @@
+⚠ Work in progress! ⚠
+
 # PostCSS Modules Extend Rule
 
 To be used with [`postcss-modules-extend-from`](../postcss-modules-extend-from)
