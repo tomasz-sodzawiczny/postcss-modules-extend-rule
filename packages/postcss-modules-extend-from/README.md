@@ -2,7 +2,7 @@
 
 # PostCSS Modules Extend Rule
 
-To be used with [`postcss-extend-class`](../postcss-extend-class)
+To be used with [`postcss-modules-extend-class`](../postcss-modules-extend-class)
 
 #### In
 

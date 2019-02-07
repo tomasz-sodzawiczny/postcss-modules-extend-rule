@@ -1,5 +1,5 @@
 {
-  "name": "postcss-extend-class",
+  "name": "postcss-modules-extend-class",
   "version": "0.0.1",
   "description": "PostCSS plugin set for using extend at-rule with CSS Modules",
   "keywords": [

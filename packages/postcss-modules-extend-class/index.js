@@ -1,6 +1,6 @@
 const postcss = require('postcss');
 
-const plugin = postcss.plugin('postcss-extend-class', () => root => {
+const plugin = postcss.plugin('postcss-modules-extend-class', () => root => {
   root.walkAtRules(atRule => {
     if (atRule.name === 'extend-class') {
       // TODO sanity checks
