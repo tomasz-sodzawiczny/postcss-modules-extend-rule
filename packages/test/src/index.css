@@ -1,0 +1,8 @@
+.red-background {
+  background: red;
+}
+
+.blueOnRed {
+  @extend .red-background;
+  @extend .blue-foreground from './blueForeground.css';
+}

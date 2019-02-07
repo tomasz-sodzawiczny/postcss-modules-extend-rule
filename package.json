@@ -1,0 +1,25 @@
+{
+  "name": "postcss-modules-extend-rule",
+  "version": "0.0.0",
+  "description": "PostCSS plugin set for using extend at-rule with CSS Modules",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "css-modules"
+  ],
+  "author": "Tomasz Sodzawiczny <tsodzawiczny@gmail.com>",
+  "license": "MIT",
+  "repository": "tomasz-sodzawiczny/postcss-modules-extend-rule",
+  "homepage": "https://github.com/tomasz-sodzawiczny/postcss-modules-extend-rule",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
