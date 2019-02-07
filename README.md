@@ -10,6 +10,12 @@
 }
 ```
 
+## Installation
+
+```sh
+yarn add --dev postcss-modules-extend-from postcss-modules-extend-class postcss-extend-rule
+```
+
 ## Usage
 
 See [example webpack config](./packages/test/webpack.config.js)
@@ -21,5 +27,5 @@ Before CSS loader:
 
 After CSS loader:
 
-- `postcss-extend-class`
+- `postcss-modules-extend-class`
 - `postcss-extend-rule` (imported extends)
