@@ -1,6 +1,7 @@
 const postcss = require('postcss');
 
 const extendClassRuleName = 'extend-class';
+const extendRuleName = 'extend';
 
 const getImportAs = function(original) {
   const randomString = Math.random()
@@ -13,7 +14,7 @@ const plugin = postcss.plugin(
   'postcss-modules-extend-from',
   () => (root, result) => {
     root.walkAtRules(atRule => {
-      if (atRule.name === 'extend') {
+      if (atRule.name === extendRuleName) {
         const match = atRule.params.match(/\s*\.(\S+)\s+from\s+(.+)\s*/);
         if (match) {
           const importWhat = match[1];
