@@ -12,9 +12,6 @@
   "license": "MIT",
   "repository": "tomasz-sodzawiczny/postcss-modules-extend-rule",
   "homepage": "https://github.com/tomasz-sodzawiczny/postcss-modules-extend-rule",
-  "workspaces": [
-    "packages/*"
-  ],
   "private": true,
   "scripts": {
     "lint": "eslint src/**/*.js"
@@ -28,6 +25,8 @@
     "prettier": "^1.16.4"
   },
   "dependencies": {
-    "postcss": "^7.0.14"
+    "postcss": "^7.0.14",
+    "postcss-extend-rule": "^2.0.0",
+    "postcss-plugin-chain": "^1.0.0"
   }
 }

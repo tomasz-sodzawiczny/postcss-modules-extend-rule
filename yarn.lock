@@ -2840,6 +2840,13 @@ postcss-nesting@^5.0.0:
   dependencies:
     postcss "^6.0.21"
 
+postcss-plugin-chain@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-plugin-chain/-/postcss-plugin-chain-1.0.0.tgz#4ef7953f5897d083d532dca7a73bad96ca408e36"
+  integrity sha512-x6q1vcX8As/UlEbalpFEnrIpaVQyLWYsWteH66z2w+02iNn2HjSGhsBvsu7o3wpbArehNnBmyKjYxIHdzt3DtA==
+  dependencies:
+    postcss "^7.0.0"
+
 postcss-value-parser@^3.3.0, postcss-value-parser@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
