@@ -2,16 +2,15 @@ import postcss from "postcss";
 import { extendClassTemporaryRuleName, defaultExtendRuleName } from "./shared";
 
 const getImportAs = original => {
-  const randomString = Math.random()
-    .toString(36)
-    .substring(2);
+  const randomString = "asdf";
   return `__extends_from_${original}_${randomString}`;
 };
 
 const plugin = postcss.plugin(
   "postcss-modules-extend-from",
   options => (root, result) => {
-    const extendRuleName = options.extendRuleName || defaultExtendRuleName;
+    const extendRuleName =
+      (options && options.extendRuleName) || defaultExtendRuleName;
 
     root.walkAtRules(atRule => {
       if (atRule.name === extendRuleName) {
