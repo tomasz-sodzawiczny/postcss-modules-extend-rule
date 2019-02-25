@@ -10,8 +10,7 @@ const getImportAs = original => {
 const plugin = postcss.plugin(
   "postcss-modules-extend-from",
   options => (root, result) => {
-    const extendRuleName =
-      (options && options.extendRuleName) || defaultExtendRuleName;
+    const extendRuleName = (options && options.name) || defaultExtendRuleName;
 
     const imports = {};
 

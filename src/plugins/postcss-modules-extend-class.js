@@ -4,8 +4,7 @@ import { extendClassTemporaryRuleName, defaultExtendRuleName } from "./shared";
 const plugin = postcss.plugin(
   "postcss-modules-extend-class",
   options => root => {
-    const extendRuleName =
-      (options && options.extendRuleName) || defaultExtendRuleName;
+    const extendRuleName = (options && options.name) || defaultExtendRuleName;
 
     root.walkAtRules(atRule => {
       if (atRule.name === extendClassTemporaryRuleName) {
