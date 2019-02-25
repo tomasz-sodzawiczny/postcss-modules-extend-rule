@@ -5,29 +5,31 @@ const shared = {
   plugins: [babel({ exclude: "node_modules/**" })]
 };
 
-const index = {
-  ...shared,
+const index = Object.assign({
   input: "src/index.js",
   output: {
     file: "index.js",
     format: "cjs"
   }
-};
-const pre = {
-  ...shared,
-  input: "src/pre.js",
-  output: {
-    file: "pre.js",
-    format: "cjs"
-  }
-};
-const post = {
-  ...shared,
-  input: "src/post.js",
-  output: {
-    file: "post.js",
-    format: "cjs"
-  }
-};
-
+});
+const pre = Object.assign(
+  {
+    input: "src/pre.js",
+    output: {
+      file: "pre.js",
+      format: "cjs"
+    }
+  },
+  shared
+);
+const post = Object.assign(
+  {
+    input: "src/post.js",
+    output: {
+      file: "post.js",
+      format: "cjs"
+    }
+  },
+  shared
+);
 export default [index, pre, post];
