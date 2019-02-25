@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pre works with both extends and extends-from syntaxes 1`] = `
+":import('red') {
+  __extends_from_1__red: red
+} .blue {color: blue} .a {
+  color: blue
+} .b { @postcss-modules-extend-class __extends_from_1__red}"
+`;

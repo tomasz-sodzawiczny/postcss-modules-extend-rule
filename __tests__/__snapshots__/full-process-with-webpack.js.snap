@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`postcss-modules-extends-rule works in full webpack process 1`] = `
+".blueForeground_2yBawDPFBHKpX2QNNYm-Gt {
+  color: blue;
+}
+
+.blueBackground_XN0vc_O5HW8pK7_q-57bt {
+  background: blue;
+}
+
+.redForeground_1YmMWXl26yhA15_DBRCth1 {
+  color: red;
+}
+
+.redBackground_PotKRKohNzvSAyjMcM1JQ {
+  background: red;
+}
+
+.border_3zyAzxOCLrLspRdsnu9UEo {
+  border: 1px solid black;
+}
+
+.blueBox_qMcEjSnNfFsFAzCgdzOSz {
+  background: blue;
+}
+
+.blueBoxWithRedText_YfsRdOan0WDd7-3y4Jg3R {
+  background: blue;
+  color: red;
+}
+
+.redBoxWithBlueText_3nuBmEENWrAckh58_v4Qwq {
+  background: red;
+  color: blue;
+}
+
+.blueBoxWithBorder_3sMvZcgEgA_9-0EKz_1P7Y {
+  background: blue;
+  border: 1px solid black;
+}
+
+"
+`;
