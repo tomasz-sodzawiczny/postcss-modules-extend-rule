@@ -1,9 +1,10 @@
 import postcss from "postcss";
 import { extendClassTemporaryRuleName, defaultExtendRuleName } from "./shared";
 
+let nextId = 0;
 const getImportAs = original => {
-  const randomString = "asdf";
-  return `__extends_from_${original}_${randomString}`;
+  nextId += 1;
+  return `__extends_from_${nextId}__${original}`;
 };
 
 const plugin = postcss.plugin(
