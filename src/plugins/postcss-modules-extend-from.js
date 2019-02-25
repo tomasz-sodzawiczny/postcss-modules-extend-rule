@@ -13,19 +13,23 @@ const plugin = postcss.plugin(
     const extendRuleName =
       (options && options.extendRuleName) || defaultExtendRuleName;
 
+    const imports = {};
+
     root.walkAtRules(atRule => {
       if (atRule.name === extendRuleName) {
         const match = atRule.params.match(/\s*\.(\S+)\s+from\s+(.+)\s*/);
         if (match) {
           const importWhat = match[1];
-          const importAs = getImportAs(importWhat);
           const importFrom = match[2];
 
-          root.prepend(
-            postcss
-              .rule({ selector: `:import(${importFrom})` })
-              .prepend(postcss.decl({ prop: importAs, value: importWhat }))
-          );
+          if (!imports[importFrom]) {
+            imports[importFrom] = {};
+          }
+          if (!imports[importFrom][importWhat]) {
+            imports[importFrom][importWhat] = getImportAs(importWhat);
+          }
+          const importAs = imports[importFrom][importWhat];
+
           atRule.replaceWith(
             postcss.atRule({
               name: extendClassTemporaryRuleName,
@@ -55,6 +59,29 @@ const plugin = postcss.plugin(
         }
       }
     });
+
+    // Based on https://github.com/css-modules/icss-utils/blob/2bfed2e97ee5409a6c0c0a36b298a078b11988e8/src/createICSSRules.js#L3
+    // Some changes made to make it more suitable to work with in this case.
+    const importRules = Object.keys(imports).map(path => {
+      const aliases = imports[path];
+
+      const declarations = Object.keys(aliases).map(value =>
+        postcss.decl({
+          prop: aliases[value],
+          value,
+          // compat: raws added not to break icss-utils versions <=4.0.0
+          raws: { before: "\n  " }
+        })
+      );
+
+      return postcss
+        .rule({
+          selector: `:import(${path})`,
+          raws: { after: "\n" }
+        })
+        .append(declarations);
+    });
+    root.prepend(importRules);
   }
 );
 
