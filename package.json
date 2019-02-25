@@ -1,18 +1,20 @@
 {
   "name": "postcss-modules-extend-rule",
-  "version": "0.0.0",
-  "description": "PostCSS plugin set for using extend at-rule with CSS Modules",
+  "version": "0.1.0",
+  "description": "PostCSS plugin set for using extend at-rule with CSS Modules.",
   "keywords": [
     "postcss",
     "css",
     "postcss-plugin",
-    "css-modules"
+    "css-modules",
+    "extend",
+    "extend-from"
   ],
   "author": "Tomasz Sodzawiczny <tsodzawiczny@gmail.com>",
   "license": "MIT",
   "repository": "tomasz-sodzawiczny/postcss-modules-extend-rule",
-  "homepage": "https://github.com/tomasz-sodzawiczny/postcss-modules-extend-rule",
-  "private": true,
+  "homepage": "https://github.com/tomasz-sodzawiczny/postcss-modules-extend-rule#readme",
+  "main": "index.js",
   "files": [
     "index.js",
     "pre.js",
