@@ -1,0 +1,18 @@
+.blueBox {
+  @extend .blueBackground from './colors.css';
+}
+
+.blueBoxWithRedText {
+  @extend .blueBox;
+  @extend .redForeground from './colors.css';
+}
+
+.redBoxWithBlueText {
+  @extend .redBackground from './colors.css';
+  @extend .blueForeground from './colors.css';
+}
+
+.blueBoxWithBorder {
+  @extend .blueBox;
+  @extend .border from './border.css';
+}
