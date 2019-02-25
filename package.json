@@ -19,8 +19,13 @@
     "post.js"
   ],
   "scripts": {
+    "prepublishOnly": "yarn build",
+    "build": "rollup --config",
+    "test": "yarn lint && yarn run-tests",
+    "pretest": "yarn build",
     "lint": "eslint src/**/*.js",
-    "build": "rollup --config"
+    "run-tests": "yarn build-test-project && yarn jest",
+    "build-test-project": "cd __test_project__ && yarn && yarn build"
   },
   "dependencies": {
     "postcss": "^7.0.14",
@@ -35,6 +40,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.1.0",
     "prettier": "^1.16.4",
     "rollup": "^1.2.3",
     "rollup-plugin-babel": "^4.3.2"

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`postcss-modules-extend-class works 1`] = `".a { @extend .__some_class_name; }"`;

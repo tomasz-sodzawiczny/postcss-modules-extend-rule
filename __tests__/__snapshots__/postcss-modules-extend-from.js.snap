@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`postcss-modules-extend-from works with a single extend 1`] = `
+":import('colors') {
+  __extends_from_1__red: red
+}
+.a { @postcss-modules-extend-class __extends_from_1__red; }"
+`;
+
+exports[`postcss-modules-extend-from works with extending classes from multiple files 1`] = `
+":import('red') {
+  __extends_from_5__red: red
+}
+:import('blue') {
+  __extends_from_6__blue: blue
+}
+.a { @postcss-modules-extend-class __extends_from_5__red; @postcss-modules-extend-class __extends_from_6__blue;}"
+`;
+
+exports[`postcss-modules-extend-from works with multiple classes extending multiple classes from one file 1`] = `
+":import('colors') {
+  __extends_from_3__red: red;
+  __extends_from_4__blue: blue
+} .a { @postcss-modules-extend-class __extends_from_3__red; } .b { @postcss-modules-extend-class __extends_from_4__blue; }"
+`;
+
+exports[`postcss-modules-extend-from works with multiple classes extending single class 1`] = `
+":import('colors') {
+  __extends_from_2__red: red
+} .a { @postcss-modules-extend-class __extends_from_2__red; } .b { @postcss-modules-extend-class __extends_from_2__red; }"
+`;
