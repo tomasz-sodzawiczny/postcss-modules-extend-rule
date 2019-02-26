@@ -12,17 +12,42 @@
 }
 ```
 
-This package is using [PostCSS Extend Rule] plugin internally - extending it's behaviour to work with CSS Modules easily.
-
 ## Motivation
 
-> **TODO:** Describe why `composes` isn't enough.
+CSS Modules suggests using `composes` syntax for
+[composition][css-modules-composition]. It works by modyfying the exported class
+name rather than changing the underlaying CSS itself. This implementation detail
+causes one major issue: `composes` cannot work with `@media` queries.
+
+[CSS Extend Rule] implementedy by [PostCSS Extend Rule] package proposes a
+reliable solution for this problem - but within a single CSS file only.
+
+This plugin suggests and implements an extended syntax for the `@extend` rule
+allowing for use with classes defined in other CSS modules:
+
+```pcss
+.layout {
+  @extend .margin-large from './margins.css';
+}
+
+@media (max-width: 240px) {
+  .layout {
+    @extend .margin-small from './margins.css';
+  }
+}
+```
+
+This package is using [PostCSS Extend Rule] plugin internally - only adding the
+`from 'module'` syntax which it processes to work with CSS Modules.
 
 ## Installation
 
 ```sh
 yarn add --dev postcss-modules-extend-rule
 ```
+
+Note that you don't have to install and run the `postcss-extend-rule` separately -
+all it's behaviours are included in this plugin.
 
 ## Usage
 
@@ -32,7 +57,7 @@ CSS Modules bundling, all modules must be tranformed with
 `postcss-modules-extend-rule/pre` plugin. Then, the final bundle must be
 processed with `postcss-modules-extend-rule/post`.
 
-> **TODO:** article on why it's needed
+> **TODO:** article on pre/post-bundling processing
 
 ```js
 const { pre, post } = require('postcss-modules-extend-rule');
@@ -43,7 +68,8 @@ const post = require('postcss-modules-extend-rule/post'); // use me on the final
 
 #### With webpack
 
-Pre-bundling and post-bundling processing can be implemented in webpack environment by combining [PostCSS Loader] and [PostCSSAssetsPlugin]:
+Pre-bundling and post-bundling processing can be implemented in webpack
+environment by combining [PostCSS Loader] and [PostCSSAssetsPlugin]:
 
 ```js
 // in CSS loader chain
@@ -65,11 +91,11 @@ new PostCSSAssetsPlugin({
 
 Example working setup can be fun in our test [`webpack.config.js`][example-webpack-config].
 
-> **TODO:** article with details and other setups (e.g. `style-loader`)
-
 ## Options
 
-This package supports all [options from PostCSS Extend Rule][postcss-extend-rule-options]. Both `pre` and `post` plugins accept the same set of options.
+This package supports all [options from PostCSS Extend
+Rule][postcss-extend-rule-options]. Both `pre` and `post` plugins accept the
+same set of options.
 
 ```js
 postcssModuleExtends.pre({ onFunctionalSelector: 'warn' });
@@ -104,5 +130,7 @@ postcssModuleExtends.pre({ onFunctionalSelector: 'warn' });
 [postcss-extend-rule-options]: https://github.com/jonathantneal/postcss-extend-rule#options
 [postcss loader]: https://github.com/postcss/postcss-loader
 [postcssassetsplugin]: https://github.com/klimashkin/postcss-assets-webpack-plugin
+[css extend rule]: https://jonathantneal.github.io/specs/css-extend-rule/
 [functional selectors]: https://jonathantneal.github.io/specs/css-extend-rule/#functional-selector
 [example-webpack-config]: ./__test_project__/webpack.config.js
+[css-modules-composition]: https://github.com/css-modules/css-modules#composition
