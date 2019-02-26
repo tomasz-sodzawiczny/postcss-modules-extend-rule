@@ -1,18 +1,37 @@
+/* Simple extend */
 .blueBox {
   @extend .blueBackground from './colors.css';
 }
 
-.blueBoxWithRedText {
-  @extend .blueBox;
-  @extend .redForeground from './colors.css';
-}
-
+/* Chained extend with override */
 .redBoxWithBlueText {
   @extend .redBackground from './colors.css';
   @extend .blueForeground from './colors.css';
 }
 
+/* Chained extend with override, mixed local on external extend */
+.blueBoxWithRedText {
+  @extend .blueBox;
+  @extend .redForeground from './colors.css';
+}
+
+/* Chained extend with override */
 .blueBoxWithBorder {
   @extend .blueBox;
   @extend .border from './border.css';
+}
+
+/* Extending different classes depending on media query */
+.responsiveBox {
+  @extend .blueBackground from './colors.css';
+}
+@media (max-width: 240px) {
+  .responsiveBox {
+    @extend .redBackground from './colors.css';
+  }
+}
+
+/* Extending a responsive class */
+.responsiveVioletBox {
+  @extend .responsiveViolet from './colors.css';
 }

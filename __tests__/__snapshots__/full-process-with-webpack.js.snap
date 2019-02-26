@@ -17,27 +17,55 @@ exports[`postcss-modules-extends-rule works in full webpack process 1`] = `
   background: red;
 }
 
+@media (max-width: 240px) {
+  .responsiveViolet_soUAT_n_D_Pr99IMx1SQ0 {
+    background: violet;
+  }
+}
+
 .border_3zyAzxOCLrLspRdsnu9UEo {
   border: 1px solid black;
 }
 
+/* Simple extend */
 .blueBox_qMcEjSnNfFsFAzCgdzOSz {
   background: blue;
 }
 
-.blueBoxWithRedText_YfsRdOan0WDd7-3y4Jg3R {
-  background: blue;
-  color: red;
-}
-
+/* Chained extend with override */
 .redBoxWithBlueText_3nuBmEENWrAckh58_v4Qwq {
   background: red;
   color: blue;
 }
 
+/* Chained extend with override, mixed local on external extend */
+.blueBoxWithRedText_YfsRdOan0WDd7-3y4Jg3R {
+  background: blue;
+  color: red;
+}
+
+/* Chained extend with override */
 .blueBoxWithBorder_3sMvZcgEgA_9-0EKz_1P7Y {
   background: blue;
   border: 1px solid black;
+}
+
+/* Extending different classes depending on media query */
+.responsiveBox_11yAChuhJQePLjbtGCjb5t {
+  background: blue;
+}
+@media (max-width: 240px) {
+  .responsiveBox_11yAChuhJQePLjbtGCjb5t {
+    background: red;
+  }
+}
+
+/* Extending a responsive class */
+@media (max-width: 240px) {
+
+  .responsiveVioletBox_2VkAL6uQ6nakuQEUtAHL3S {
+    background: violet;
+  }
 }
 
 "

@@ -13,3 +13,9 @@
 .redBackground {
   background: red;
 }
+
+@media (max-width: 240px) {
+  .responsiveViolet {
+    background: violet;
+  }
+}
