@@ -15,11 +15,11 @@
 ## Motivation
 
 CSS Modules suggests using `composes` syntax for
-[composition][css-modules-composition]. It works by modyfying the exported class
-name rather than changing the underlaying CSS itself. This implementation detail
+[composition][css-modules-composition]. It works by modifying the exported class
+name rather than changing the underlying CSS itself. This implementation detail
 causes one major issue: `composes` cannot work with `@media` queries.
 
-[CSS Extend Rule] implementedy by [PostCSS Extend Rule] package proposes a
+[CSS Extend Rule] implemented by [PostCSS Extend Rule] package proposes a
 reliable solution for this problem - but within a single CSS file only.
 
 This plugin suggests and implements an extended syntax for the `@extend` rule
@@ -47,17 +47,15 @@ yarn add --dev postcss-modules-extend-rule
 ```
 
 Note that you don't have to install and run the `postcss-extend-rule` separately -
-all it's behaviours are included in this plugin.
+all it's behaviors are included in this plugin.
 
 ## Usage
 
 This package consists of two PostCSS plugins. To use it, your setup must allow
-both _pre-bundling_ and _post-bundling_ PostCSS processing. First, before the
-CSS Modules bundling, all modules must be tranformed with
+both [_pre-bundling_ and _post-bundling_ PostCSS processing][pre-post-rfc]. First, before the
+CSS Modules bundling, all modules must be transformed with
 `postcss-modules-extend-rule/pre` plugin. Then, the final bundle must be
 processed with `postcss-modules-extend-rule/post`.
-
-> **TODO:** article on pre/post-bundling processing
 
 ```js
 const { pre, post } = require('postcss-modules-extend-rule');
@@ -134,3 +132,4 @@ postcssModuleExtends.pre({ onFunctionalSelector: 'warn' });
 [functional selectors]: https://jonathantneal.github.io/specs/css-extend-rule/#functional-selector
 [example-webpack-config]: ./__test_project__/webpack.config.js
 [css-modules-composition]: https://github.com/css-modules/css-modules#composition
+[pre-post-rfc]: https://github.com/tomasz-sodzawiczny/rfc-pre-post-bundling-processing#readme
