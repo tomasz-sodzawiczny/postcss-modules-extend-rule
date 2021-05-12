@@ -30,7 +30,7 @@
     "build-test-project": "cd __test_project__ && yarn && yarn build"
   },
   "dependencies": {
-    "postcss": "^7.0.14",
+    "postcss": "^8.2.10",
     "postcss-extend-rule": "^2.0.0",
     "postcss-plugin-chain": "^1.0.0"
   },
